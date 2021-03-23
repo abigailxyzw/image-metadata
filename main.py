@@ -5,14 +5,16 @@ import pandas as pd
 import re
 import numpy as np
 import argparse
-from parse_json import parse_json
 from numpy import nan
+from setup import download_images, move_pngs_over
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Helper routines to analyze a subset of image metadata from Q posts')
     parser.add_argument('--subset_images', action='store_true', help='Extract only the images posted by Q, excluding those from anons.')
     parser.add_argument("--create_data_set", action="store_true", help='Create dataset of metadata from Q images labeled "Screenshot')
     parser.add_argument("--visualize", action="store_true", help='Create visualizations of time difference information')
+    parser.add_argument("--download_images", action="store_true", help='Create visualizations of time difference information')
+
     args=parser.parse_args()
     return args
 
@@ -58,7 +60,6 @@ class MetaDataManager():
         if not self.blacklist_df and self.blacklist:
             self.blacklist_df=pd.read_csv(self.blacklist_fp, names=['drop_number'], dtype={'drop_number':str}, index_col=False)
 
-    #q posts only-what is going on here?
     def get_media_duplicates(self):
         if not self.counts_dict:
             png_counts={}
@@ -79,7 +80,6 @@ class MetaDataManager():
             counts_dict={}
             for k, v in png_counts.items():
                 counts_dict[k]=[len(v), v]
-            #set the parameter and then output
             self.counts_dict=counts_dict
             with open(self.counts_fp, 'w') as fh:
                 json.dump(self.counts_dict, fh, indent=4)
@@ -172,11 +172,14 @@ class MetaDataManager():
 if __name__=="__main__":
 
     args=parse_args() 
-    
+   
+    if args.download_images:
+        download_images()
+
     if args.subset_images:
         with open(posts_fp, 'r') as fh:
             post_dict=json.load(fh)
-        full_folder_from=os.path.join(os.getenv("HOME"), 'image-metadata/media/all_images')
+        full_folder_from=os.path.join(os.getenv("HOME"), 'image-metadata/media/downloads')
         full_folder_to=os.path.join(os.getenv("HOME"), 'image-metadata/media/just_q')
         q_pngs=get_q_pngs(post_dict)
         move_pngs_over(q_pngs, full_folder_from, full_folder_to)
