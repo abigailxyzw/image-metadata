@@ -1,0 +1,7 @@
+venv/
+media/
+data/
+analysis/
+
+__pycache__/
+
