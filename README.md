@@ -16,7 +16,7 @@ The shell script *scrape_metadata.sh* assumes this repository is located in the 
 
 Those who wish to download the images and initial posts.json separately can do so from *https://qalerts.net/media/*and *https://qalerts.app/data/json/posts.json* for now.  (Take note: we are unaffiliated with qalerts, which is a Qanon-promoting website.)
 
-To create the screenshots dataset, activate the virtual environment and run `python3 main.py --subset_images`. The dataset will be output to *image-metadata/analysis/txt/screenshots.csv.*
+To create the screenshots dataset, activate the virtual environment and run `python3 main.py --create_data_set.` The dataset will be output to *image-metadata/analysis/txt/screenshots.csv.*
 
 Finally, the ipython notebook *image-metadata-analysis.ipynb* reads in the screenshot data and performs analysis on its timestamps.
 
