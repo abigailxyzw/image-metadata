@@ -4,7 +4,7 @@ README
 
 SUMMARY 
 
-This python 3 codebase allows a user to create a dataset of metadata for the images posted by Q. It also produces a dataset of 29 images marked "Screenshot," 27 of which have time information. It is likely this metadata was added by Q's own device rather than inherited from another source. In any case, we have not been able to find the source for the metadata online using reverse image source and metadata extraction tools.
+This python 3 codebase allows a user to create a dataset of metadata for the images posted by Q. It also produces a dataset that subsets the Q image metadata to focuse on 29 images marked "Screenshot." 27 of these images have time information and it is likely this metadata was added by Q's own device rather than inherited from another source. In any case, we have not been able to find the source for the metadata online using reverse image source and metadata extraction tools.
 
 The author was able to run the code in python 3.8.5.
 
