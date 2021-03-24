@@ -157,11 +157,11 @@ class MetaDataManager():
             self.get_metadata_decorated()
             stack_two_df=self.metadata_decorated_df[self.metadata_decorated_df.UserComment == 'Screenshot']
             stack_two_df['DateCreated']=pd.to_datetime(stack_two_df['DateCreated'], format='%Y:%m:%d %H:%M:%S', utc=True)
-            stack_two_df['timedelta']=stack_two_df['DateCreated']-stack_two_df['timestamp_drop_UTC']
-            stack_two_df['timedelta']=stack_two_df.timedelta.dt.total_seconds()/3600.
+            stack_two_df['timediff']=stack_two_df['DateCreated']-stack_two_df['timestamp_drop_UTC']
+            stack_two_df['timediff']=stack_two_df.timedelta.dt.total_seconds()/3600.
             stack_two_df['DateCreated']=stack_two_df['DateCreated'].dt.tz_localize(None)
             cols=stack_two_df.columns.tolist()
-            re_org=['drop_number', 'timestamp_drop_UTC', 'DateCreated', 'timedelta', 'source', 'trip']
+            re_org=['drop_number', 'timestamp_drop_UTC', 'DateCreated', 'timediff', 'source', 'trip']
             for re in re_org:
                 cols.remove(re)
                 cols=re_org + cols
