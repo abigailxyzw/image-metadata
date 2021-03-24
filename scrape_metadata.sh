@@ -11,8 +11,7 @@ mkdir -p $HOME/image-metadata/media/just_q
 echo "installing virtual environment"
 mkdir $HOME/image-metadata/venv
 python3 -m venv $HOME/image-metadata/venv
-source $HOME/image-metadata/venv/bin/activate
-pip3 install -r $HOME/image-metadata/requirements.txt
+source $HOME/image-metadata/venv/bin/activate && pip3 install -r $HOME/image-metadata/requirements.txt
 
 #download images to folder 
 echo "downloading images"
@@ -20,10 +19,10 @@ python3 main.py --download_images
 
 #download json to folder
 #check behavior
-wget -o $HOME/image-metadata/data/posts.json https://qalerts.app/data/json/posts.json  
+wget https://qalerts.app/data/json/posts.json -P $HOME/image-metadata/data/ 
 
 #sort images into Q/not Q
-python $HOME/image-metadata/main.py --subset_images
+python3 $HOME/image-metadata/main.py --subset_images
 
 #run exif tool
 exiftool -csv $HOME/image-metadata/media/just_q/ > $HOME/image-metadata/data/metadata.csv

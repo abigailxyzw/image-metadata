@@ -6,7 +6,7 @@ import re
 import numpy as np
 import argparse
 from numpy import nan
-from setup import download_images, move_pngs_over
+from setup import download_images, move_pngs_over, get_q_pngs
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Helper routines to analyze a subset of image metadata from Q posts')
@@ -177,6 +177,7 @@ if __name__=="__main__":
         download_images()
 
     if args.subset_images:
+        posts_fp=os.path.join(os.getenv("HOME"), 'image-metadata/data/posts.json')
         with open(posts_fp, 'r') as fh:
             post_dict=json.load(fh)
         full_folder_from=os.path.join(os.getenv("HOME"), 'image-metadata/media/downloads')
