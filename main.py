@@ -163,7 +163,7 @@ class MetaDataManager():
             re_org=['drop_number', 'timestamp_drop_UTC', 'DateCreated', 'timediff', 'source', 'trip']
             for re in re_org:
                 cols.remove(re)
-                cols=re_org + cols
+            cols=re_org + cols
             stack_two_df=stack_two_df[cols]
             self.screenshots_df=stack_two_df
             self.screenshots_df.to_csv(self.screenshots_fp,  index=False)
