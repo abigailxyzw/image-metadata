@@ -2,7 +2,7 @@ README
 
 **The author of this codebase approaches the Qanon phenomenon from a skeptical perspective.**  
 
-If you are simply looking for the screenshots.csv dataset and don't want to reproduce it, go to our **[google sheet](https://docs.google.com/spreadsheets/d/1LeoQXElOCD6DJfttVtKhtuvBsTBUecjAT3T8rJnwT6M/edit#gid=1242347935)**.
+If you are simply looking for the *screenshots.csv* dataset and don't want to reproduce it, go to our **[google sheet](https://docs.google.com/spreadsheets/d/1LeoQXElOCD6DJfttVtKhtuvBsTBUecjAT3T8rJnwT6M/edit#gid=1242347935)**.
 
 SUMMARY 
 
