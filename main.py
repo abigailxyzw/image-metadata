@@ -12,7 +12,6 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Helper routines to analyze a subset of image metadata from Q posts')
     parser.add_argument('--subset_images', action='store_true', help='Extract only the images posted by Q, excluding those from anons.')
     parser.add_argument("--create_data_set", action="store_true", help='Create dataset of metadata from Q images labeled "Screenshot')
-    parser.add_argument("--visualize", action="store_true", help='Create visualizations of time difference information')
     parser.add_argument("--download_images", action="store_true", help='Create visualizations of time difference information')
 
     args=parser.parse_args()
@@ -164,7 +163,7 @@ class MetaDataManager():
             re_org=['drop_number', 'timestamp_drop_UTC', 'DateCreated', 'timediff', 'source', 'trip']
             for re in re_org:
                 cols.remove(re)
-                cols=re_org + cols
+            cols=re_org + cols
             stack_two_df=stack_two_df[cols]
             self.screenshots_df=stack_two_df
             self.screenshots_df.to_csv(self.screenshots_fp,  index=False)
@@ -189,7 +188,5 @@ if __name__=="__main__":
         my_mdm=MetaDataManager()
         my_mdm.get_screenshot_info()
 
-    if args.visualize:
-        pass
 
 
